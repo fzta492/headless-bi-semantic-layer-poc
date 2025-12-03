@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  semantic-api:
+    image: cubejs/cube:latest
+    ports:
+      - "4000:4000"
+    environment:
+      - CUBEJS_DB_TYPE=postgres
+      - CUBEJS_DB_HOST=data-warehouse
+      - CUBEJS_DB_NAME=postgres
+      - CUBEJS_DB_USER=postgres
+      - CUBEJS_DB_PASS=postgres
+      - CUBEJS_API_SECRET=segredo_demo_123
+      - CUBEJS_DEV_MODE=true
+    volumes:
+      - ./schema:/cube/conf/schema
+    depends_on:
+      - data-warehouse
+
+  # Banco de Dados Mock
+  data-warehouse:
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=analytics_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
