@@ -1,0 +1,38 @@
+{
+  "cubes": [
+    {
+      "name": "orders",
+      "title": "Pedidos de Venda",
+      "measures": [
+        {
+          "name": "orders.count",
+          "title": "Total de Pedidos",
+          "type": "count"
+        },
+        {
+          "name": "orders.net_revenue",
+          "title": "Receita Líquida",
+          "type": "number",
+          "description": "Receita Líquida Oficial (GMV - Impostos - Reembolsos)",
+          "meta": {
+            "business_owner": "Financeiro",
+            "calculation_verified": true
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "name": "orders.created_at",
+          "title": "Data do Pedido",
+          "type": "time"
+        },
+        {
+          "name": "orders.status",
+          "title": "Status",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "generation_timestamp": "2025-05-20T10:00:00Z"
+}
