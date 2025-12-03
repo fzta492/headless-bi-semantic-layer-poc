@@ -1,0 +1,32 @@
+# Camada Semântica: Definição Centralizada de Métricas
+# Objetivo: Garantir que o Financeiro e o Marketing vejam o mesmo número.
+
+cubes:
+  - name: orders
+    sql: SELECT * FROM raw_data.orders  # Mapeamento da fonte bruta
+
+    measures:
+      - name: count
+        type: count
+        description: "Contagem total de pedidos brutos"
+
+      - name: total_amount
+        sql: amount
+        type: sum
+        description: "Valor bruto transacionado (GMV)"
+
+      # Regra de negócio no código, não no Dashboard
+      - name: net_revenue
+        sql: ${total_amount} - ${tax_amount} - ${refund_amount}
+        type: number
+        format: currency
+        description: "Receita Líquida (GMV - Impostos - Reembolsos). Fonte da Verdade Oficial."
+
+    dimensions:
+      - name: status
+        sql: status
+        type: string
+        
+      - name: created_at
+        sql: created_at
+        type: time
