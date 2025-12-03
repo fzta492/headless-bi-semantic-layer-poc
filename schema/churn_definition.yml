@@ -1,0 +1,21 @@
+cubes:
+  - name: subscription_events
+    
+    measures:
+      - name: churned_users
+        type: count
+        filters:
+          - sql: "${CUBE}.event_type = 'cancellation'"
+        description: "Numerador do Churn: Usuários que cancelaram no período."
+
+      - name: active_users_start_of_period
+        type: count
+        filters:
+          - sql: "${CUBE}.event_type = 'active'"
+        description: "Denominador do Churn: Base ativa no início do mês."
+
+      - name: churn_rate
+        sql: "100.0 * ${churned_users} / NULLIF(${active_users_start_of_period}, 0)"
+        type: number
+        format: percent
+        description: "Taxa de Churn Mensal (Regra Aprovada pelo Board em 2025)."
