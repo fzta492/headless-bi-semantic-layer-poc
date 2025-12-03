@@ -1,0 +1,36 @@
+{
+  "comment": "Definição de Schema para Google Looker Studio Community Connector",
+  "schema": [
+    {
+      "name": "orders.net_revenue",
+      "label": "Receita Líquida (Oficial)",
+      "dataType": "NUMBER",
+      "semantics": {
+        "conceptType": "METRIC",
+        "semanticType": "CURRENCY_BRL",
+        "isReaggregatable": false
+      },
+      "description": "Cálculo: GMV - Impostos - Reembolsos. Fonte: Camada Semântica."
+    },
+    {
+      "name": "orders.churn_rate",
+      "label": "Taxa de Churn Mensal",
+      "dataType": "NUMBER",
+      "semantics": {
+        "conceptType": "METRIC",
+        "semanticType": "PERCENT",
+        "isReaggregatable": false
+      },
+      "defaultAggregationType": "AVG"
+    },
+    {
+      "name": "orders.created_at",
+      "label": "Data do Pedido",
+      "dataType": "STRING",
+      "semantics": {
+        "conceptType": "DIMENSION",
+        "semanticType": "YEAR_MONTH_DAY"
+      }
+    }
+  ]
+}
