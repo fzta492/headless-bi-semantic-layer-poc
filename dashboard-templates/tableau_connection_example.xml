@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<datasource formatted-name='Semantic Layer Connection' inline='true'>
+  <connection class='postgres' dbname='analytics_db' odbc-native-protocol='yes' port='5432' server='localhost' username='user'>
+    <relation name='cube_orders' table='[public].[orders]' type='table' />
+    <metadata-record class='column'>
+      <remote-name>net_revenue</remote-name>
+      <remote-type>129</remote-type>
+      <local-name>[Receita Líquida]</local-name>
+      <parent-name>[orders]</parent-name>
+      <remote-alias>net_revenue</remote-alias>
+      <description>Fonte da Verdade: Financeiro</description>
+    </metadata-record>
+  </connection>
+</datasource>
