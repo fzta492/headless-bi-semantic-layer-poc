@@ -1,4 +1,4 @@
-# 🛡️ Headless BI: Semantic Layer PoC
+# 🛡️ Headless BI: Semantic Layer
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Tech Stack](https://img.shields.io/badge/stack-Cube%20%7C%20Docker%20%7C%20SQL-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -8,7 +8,7 @@
 
 ## 🏗️ Arquitetura
 
-Esta PoC demonstra uma arquitetura onde o BI é tratado como código (*Configuration as Code*), desacoplando a definição da métrica da ferramenta de visualização.
+Este doc demonstra uma arquitetura onde o BI é tratado como código (*Configuration as Code*), desacoplando a definição da métrica da ferramenta de visualização.
 
 ```mermaid
 graph LR
